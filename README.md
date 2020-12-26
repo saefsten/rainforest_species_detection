@@ -9,10 +9,10 @@ This model uses a Keras convolutional neural network to classify these species. 
 
 The predictions can then be made on the test data by looping over the test files and predict each 200 ms interval using the model. The final output is a probability for each species that this species is heard in the audio file. There is no determination of when in the file the species was heard.
 
-Main Python libraries used:
-Librosa 0.8.0 <br>
-NumPy 1.18.5
-Pandas 1.1.5
-PyAudio 0.2.11
-Soundfile 0.10.3
+Main Python libraries used:<br>
+Librosa 0.8.0<br>
+NumPy 1.18.5<br>
+Pandas 1.1.5<br>
+PyAudio 0.2.11<br>
+Soundfile 0.10.3<br>
 TensorFlow 2.3.0 (with Keras 2.4.0)
