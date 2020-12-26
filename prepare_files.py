@@ -1,3 +1,7 @@
+"""
+Scrit can be used to cut the audio files and only save the labeled data in case the files are to big.
+"""
+
 import os
 from tqdm import tqdm
 import librosa
@@ -5,7 +9,7 @@ import pandas as pd
 import soundfile as sf
 import numpy as np
 
-train_tp = pd.read_csv('/Users/anders/Documents/spiced_encounters/final_project_jungle/train_tp.csv', sep=',')
+train_tp = pd.read_csv('PATH_TO_TRAIN CSV', sep=',')
 
 def envelope(y, rate, threshold):
     mask = []
@@ -24,8 +28,6 @@ for item in tqdm(train_tp.index):
     stop = train_tp.loc[item, 't_max'] # seconds
     duration = stop - start
     signal, sr = librosa.load('train.nosync/'+ f + '.flac', sr=48000, offset=start, duration=duration)
-    # mask = envelope(signal_raw, sr, 0.001)
-    # signal = signal_raw[mask]
     species = train_tp.loc[item, 'species_id']
     filename = str(species) + '_' + str(f) + '.flac'
-    sf.write('train_cut_48k.nosync/'+filename, signal, sr, format='FLAC')
+    sf.write('PATH_NEW_FILES'+filename, signal, sr, format='FLAC')
